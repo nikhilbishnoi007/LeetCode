@@ -7,9 +7,9 @@
 // console.log(strStr("sadbutsad", "sad"))
 // console.log(strStr("leetcode", "leeto"))
 
-//Q2)Length of Last Word
 
 
+// Q2)Length of Last Word
 function lengthOfLastWord(s: string): number {
     let lastWord: string = s.trim().split(" ").at(-1)!;
     let lengthOfLastWord=lastWord.length
