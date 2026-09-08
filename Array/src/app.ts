@@ -1,19 +1,68 @@
-function secondLargestNumber(arr: number[]): number {
-    let largest: number=0;
-    let secondlargest: number=0;
-    for (const value of arr) {
-      if(value>largest){
-        secondlargest=largest
-        largest=value;
-      }
-      else if(value>secondlargest && value!=largest){
-         secondlargest=value
-      }
-    }
+// Q.1 find the second largest array 
+// function secondLargestNumber(arr: number[]): number {
+//     let largest: number=0;
+//     let secondlargest: number=0;
+//     for (const value of arr) {
+//       if(value>largest){
+//         secondlargest=largest
+//         largest=value;
+//       }
+//       else if(value>secondlargest && value!=largest){
+//          secondlargest=value
+//       }
+//     }
 
-   return secondlargest
+//    return secondlargest
+// }
+
+
+// let find=secondLargestNumber([12, 35, 38, 36, 34, 1])
+// console.log(find)
+
+//Q.2 chnge the index of 0
+// function moveZeros(arr: number[]): number[] {
+//  let insertPos = 0
+//  for(const val of arr){
+//  if(val!== 0){
+//     arr[insertPos]=val
+//     insertPos++
+// }
+// }
+//  for(let i=insertPos;i<arr.length;i++){
+//     arr[i]=0
+//  }
+
+//  return arr
+// }
+
+// console.log(moveZeros([0, 1, 0, 3, 12,8,9,0,9,0])); 
+
+//Q.3 find missing number 
+// function findMissing(arr: number[], n: number): number {
+//     let sum = n * (n + 1) / 2
+//     let actualSum = 0;
+//     for (const num of arr) {
+//         actualSum += num;
+//     }
+//     let missingnumber=sum-actualSum
+//     return missingnumber
+// }
+
+// console.log(findMissing([1, 2, 4, 5], 6)); 
+
+//Q.4 finding multiple missing number
+
+function multipleMissingNumber(arr: number[],n:number):number[]{
+    let set=new Set<number>()
+    for(let i=1;i<=n;i++){
+        set.add(i)
+    }
+    for(const val of arr){
+        set.delete(val)
+    }
+     return Array.from(set);
 }
 
-
-let find=secondLargestNumber([12, 35, 38, 36, 34, 1])
-console.log(find)
+let array=[1,2,4,5,7]
+let value=multipleMissingNumber(array,9)
+console.log(value)
