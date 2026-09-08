@@ -31,14 +31,40 @@
 // }
 
 // pyramidPattern(5)
+//Q.3 number pattern
+// function numberPattern(n:number):void{
+//     for(let i=1;i<=n;i++){
+//         let raw=""
+//       for(let j=1;j<=i;j++){
+//        raw+=` ${j}`
+//       }
+//       console.log(raw)
+//     }
+// }
+// numberPattern(5)
 
-function numberPattern(n:number):void{
-    for(let i=1;i<=n;i++){
-        let raw=""
-      for(let j=1;j<=i;j++){
-       raw+=` ${j}`
-      }
-      console.log(raw)
+function pyramid(n:number):void{
+  for(let i=1;i<=n;i++){
+    let raw=""
+    for(let j=1;j<=(n-i);j++){
+      raw+=" "
     }
+    for(let k=1;k<=(2*i-1);k++){
+      raw+="*"
+    }
+    console.log(raw)
+  }
+  for(let a=(n-1);a>=1;a--){
+    let raw2=""
+    for(let b=(n-a);b>=1;b--){
+      raw2+=" "
+    }
+    for(let c=(2*a-1);c>=1;c--){
+      raw2+="*"
+    }
+    console.log(raw2);
+    
+  }
+
 }
-numberPattern(5)
+pyramid(5)
