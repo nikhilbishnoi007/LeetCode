@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev":"nodemon dist/pattern.js"
+    "dev":"nodemon dist/app.js"
   },
   "keywords": [],
   "author": "",
