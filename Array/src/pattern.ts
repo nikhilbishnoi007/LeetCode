@@ -41,4 +41,4 @@ function numberPattern(n:number):void{
       console.log(raw)
     }
 }
-numberPattern(3)
+numberPattern(5)
