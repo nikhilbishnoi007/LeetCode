@@ -1,13 +1,13 @@
 function secondLargestNumber(arr: number[]): number {
     let largest: number=0;
     let secondlargest: number=0;
-    for (const val of arr) {
-      if(val>largest){
+    for (const value of arr) {
+      if(value>largest){
         secondlargest=largest
-        largest=val;
+        largest=value;
       }
-      else if(val>secondlargest && val!=largest){
-         secondlargest=val
+      else if(value>secondlargest && value!=largest){
+         secondlargest=value
       }
     }
 
