@@ -90,20 +90,66 @@
 
 //Q.6 Sorting array using Bubble sort
 
-function BubbleSort(arr: number[]): number[] {
-  for(let i=0;i<arr.length;i++){
-    for(let j=0;j<arr.length;j++){
-        if(arr[j]>arr[j+1]){
-           let temp=arr[j]
-           arr[j]=arr[j+1]
-           arr[j+1]=temp
-        }
+// function BubbleSort(arr: number[]): number[] {
+//   for(let i=0;i<arr.length;i++){
+//     for(let j=0;j<arr.length;j++){
+//         if(arr[j]>arr[j+1]){
+//            let temp=arr[j]
+//            arr[j]=arr[j+1]
+//            arr[j+1]=temp
+//         }
+//     }
+//   }
+
+// return arr
+// }
+
+// console.log(BubbleSort([9,5,24,43,4]));
+
+//Q.7 find the three value where sum of the values is zero
+
+function threeSum(arr: number[]): number[][] {
+  for (let a = 0; a < arr.length; a++) {
+    for (let b = 0; b < arr.length; b++) {
+      if (arr[b] > arr[b + 1]) {
+        let temp = arr[b]
+        arr[b] = arr[b + 1]
+        arr[b + 1] = temp
+      }
     }
   }
-
-return arr
+  let result: number[][] = []
+  for (let i = 0; i < arr.length; i++) {
+    if (i > 0 && arr[i] === arr[i - 1]) {
+      continue;
+    }
+    let left = i + 1
+    let right = arr.length - 1
+    while (left < right) {
+      let sum = arr[i] + arr[left] + arr[right];
+      if (sum === 0) {
+        result.push([arr[i], arr[left], arr[right]]);
+        left++;
+        right--;
+        while (left < right && arr[left] === arr[left - 1]) {
+          left++;
+        }
+        while (left < right && arr[right] === arr[right + 1]) {
+          right--;
+        }
+      }
+      else if (sum > 0) {
+        right--;
+      }
+      else {
+        left++;
+      }
+    }
+  }
+  return result
 }
 
-console.log(BubbleSort([9,5,24,43,4]));
+console.log(threeSum([-1, 0, 1, 2, -1, -4]));
+console.log(threeSum([1,2,0,1,0,0,0,0]));
 
 
