@@ -153,27 +153,52 @@
 // console.log(threeSum([1,2,0,1,0,0,0,0]));
 
 //Q.8 Product of Array Except Self
-function productExceptSelf(nums: number[]): number[] {
-  const n = nums.length;
-  const leftProducts: number[] = new Array(n).fill(1);
-  const rightProducts: number[] = new Array(n).fill(1);
-  const result: number[] = new Array(n).fill(1);
-  let calculator = 1;
-for (let i = 0; i < n; i++) {
-  leftProducts[i] = calculator;  
-  calculator = calculator * nums[i];  
-}
-let calculator2 = 1;
+// function productExceptSelf(nums: number[]): number[] {
+//   const n = nums.length;
+//   const leftProducts: number[] = new Array(n).fill(1);
+//   const rightProducts: number[] = new Array(n).fill(1);
+//   const result: number[] = new Array(n).fill(1);
+//   let calculator = 1;
+// for (let i = 0; i < n; i++) {
+//   leftProducts[i] = calculator;  
+//   calculator = calculator * nums[i];  
+// }
+// let calculator2 = 1;
 
-for (let i = n - 1; i >= 0; i--) {
- rightProducts[i]=calculator2
- calculator2=calculator2*nums[i]
-}
-for (let i = 0; i < n; i++) {
-  result[i] = leftProducts[i] * rightProducts[i];
-}
+// for (let i = n - 1; i >= 0; i--) {
+//  rightProducts[i]=calculator2
+//  calculator2=calculator2*nums[i]
+// }
+// for (let i = 0; i < n; i++) {
+//   result[i] = leftProducts[i] * rightProducts[i];
+// }
 
-  return result
-}
+//   return result
+// }
 
-console.log(productExceptSelf([1, 2, 3, 4]));
+// console.log(productExceptSelf([1, 2, 3, 4]));
+
+//Q.9 find left max and right max value sum
+
+// function leftRightMax(arr: number[]): number[] {
+//   let n=arr.length
+//   let leftMax:number[]=new Array(n).fill(1)
+//   let righMax:number[]=new Array(n).fill(1)
+//   let result:number[]=new Array(n).fill(1)
+//   let max=0
+//   for(let i=0;i<n;i++){
+//     leftMax[i]=max
+//     max=Math.max(max,arr[i])
+//   }
+//   let max2=0
+//   for(let i=n-1;i>=0;i--){
+//     righMax[i]=max2
+//     max2=Math.max(max2,arr[i])
+//   }
+//   for(let i=0;i<n;i++){
+//     result[i]=leftMax[i]+righMax[i]
+//   }
+//   return result
+// }
+
+// console.log(leftRightMax([3, 1, 4, 2, 5]));
