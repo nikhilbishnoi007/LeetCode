@@ -69,23 +69,41 @@
 
 
 //Q.5 find maxium subbarrays sum
-function maxSubarraySum(arr: number[]): number {
-  let currentSum = arr[0]; 
-  let maxSum = arr[0]; 
+// function maxSubarraySum(arr: number[]): number {
+//   let currentSum = arr[0]; 
+//   let maxSum = arr[0]; 
 
-  for (let i = 1; i < arr.length; i++) {
-    currentSum = Math.max(arr[i], currentSum + arr[i])
-    if(currentSum>maxSum){
-        maxSum=currentSum
+//   for (let i = 1; i < arr.length; i++) {
+//     currentSum = Math.max(arr[i], currentSum + arr[i])
+//     if(currentSum>maxSum){
+//         maxSum=currentSum
+//     }
+//   }
+
+//   return maxSum;
+// }
+
+
+
+// console.log(maxSubarraySum([-2, 1, -3, 4, -1, 2, 1, -5, 4])); 
+
+
+//Q.6 Sorting array using Bubble sort
+
+function BubbleSort(arr: number[]): number[] {
+  for(let i=0;i<arr.length;i++){
+    for(let j=0;j<arr.length;j++){
+        if(arr[j]>arr[j+1]){
+           let temp=arr[j]
+           arr[j]=arr[j+1]
+           arr[j+1]=temp
+        }
     }
   }
 
-  return maxSum;
+return arr
 }
 
-
-
-console.log(maxSubarraySum([-2, 1, -3, 4, -1, 2, 1, -5, 4])); 
-
+console.log(BubbleSort([9,5,24,43,4]));
 
 
