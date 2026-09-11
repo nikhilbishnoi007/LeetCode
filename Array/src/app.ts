@@ -108,48 +108,72 @@
 
 //Q.7 find the three value where sum of the values is zero
 
-function threeSum(arr: number[]): number[][] {
-  for (let a = 0; a < arr.length; a++) {
-    for (let b = 0; b < arr.length; b++) {
-      if (arr[b] > arr[b + 1]) {
-        let temp = arr[b]
-        arr[b] = arr[b + 1]
-        arr[b + 1] = temp
-      }
-    }
-  }
-  let result: number[][] = []
-  for (let i = 0; i < arr.length; i++) {
-    if (i > 0 && arr[i] === arr[i - 1]) {
-      continue;
-    }
-    let left = i + 1
-    let right = arr.length - 1
-    while (left < right) {
-      let sum = arr[i] + arr[left] + arr[right];
-      if (sum === 0) {
-        result.push([arr[i], arr[left], arr[right]]);
-        left++;
-        right--;
-        while (left < right && arr[left] === arr[left - 1]) {
-          left++;
-        }
-        while (left < right && arr[right] === arr[right + 1]) {
-          right--;
-        }
-      }
-      else if (sum > 0) {
-        right--;
-      }
-      else {
-        left++;
-      }
-    }
-  }
+// function threeSum(arr: number[]): number[][] {
+//   for (let a = 0; a < arr.length; a++) {
+//     for (let b = 0; b < arr.length; b++) {
+//       if (arr[b] > arr[b + 1]) {
+//         let temp = arr[b]
+//         arr[b] = arr[b + 1]
+//         arr[b + 1] = temp
+//       }
+//     }
+//   }
+//   let result: number[][] = []
+//   for (let i = 0; i < arr.length; i++) {
+//     if (i > 0 && arr[i] === arr[i - 1]) {
+//       continue;
+//     }
+//     let left = i + 1
+//     let right = arr.length - 1
+//     while (left < right) {
+//       let sum = arr[i] + arr[left] + arr[right];
+//       if (sum === 0) {
+//         result.push([arr[i], arr[left], arr[right]]);
+//         left++;
+//         right--;
+//         while (left < right && arr[left] === arr[left - 1]) {
+//           left++;
+//         }
+//         while (left < right && arr[right] === arr[right + 1]) {
+//           right--;
+//         }
+//       }
+//       else if (sum > 0) {
+//         right--;
+//       }
+//       else {
+//         left++;
+//       }
+//     }
+//   }
+//   return result
+// }
+
+// console.log(threeSum([-1, 0, 1, 2, -1, -4]));
+// console.log(threeSum([1,2,0,1,0,0,0,0]));
+
+//Q.8 Product of Array Except Self
+function productExceptSelf(nums: number[]): number[] {
+  const n = nums.length;
+  const leftProducts: number[] = new Array(n).fill(1);
+  const rightProducts: number[] = new Array(n).fill(1);
+  const result: number[] = new Array(n).fill(1);
+  let calculator = 1;
+for (let i = 0; i < n; i++) {
+  leftProducts[i] = calculator;  
+  calculator = calculator * nums[i];  
+}
+let calculator2 = 1;
+
+for (let i = n - 1; i >= 0; i--) {
+ rightProducts[i]=calculator2
+ calculator2=calculator2*nums[i]
+}
+for (let i = 0; i < n; i++) {
+  result[i] = leftProducts[i] * rightProducts[i];
+}
+
   return result
 }
 
-console.log(threeSum([-1, 0, 1, 2, -1, -4]));
-console.log(threeSum([1,2,0,1,0,0,0,0]));
-
-
+console.log(productExceptSelf([1, 2, 3, 4]));
