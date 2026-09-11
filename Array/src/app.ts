@@ -202,3 +202,27 @@
 // }
 
 // console.log(leftRightMax([3, 1, 4, 2, 5]));
+
+
+//Q.10 container with most water
+function maxArea(nums: number[]): number {
+  let left = 0;
+  let right = nums.length - 1;
+  let maxArea = 0;
+  while(left<right){
+    const width = right - left;
+    const height = Math.min(nums[left], nums[right]);
+    const area = width * height;
+     maxArea=Math.max(maxArea,area)
+     if(nums[left]<nums[right]){
+      left++
+     }else {
+      right--
+     }
+  }
+
+  return maxArea
+  
+}
+
+console.log(maxArea([1,8,6,2,5,4,8,3,7]));
