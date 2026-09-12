@@ -32,3 +32,4 @@ This repo tracks my journey through Data Structures & Algorithms — one problem
 
 - Portfolio: [updatedportfolio-iota.vercel.app](https://updatedportfolio-iota.vercel.app)
 - LinkedIn: [linkedin.com/in/nikhilbishnoi92568](https://linkedin.com/in/nikhilbishnoi92568)
+- LeetCode:[leetcode.com/u/nikhilbishnoi007](https://leetcode.com/u/nikhilbishnoi007/)
