@@ -228,26 +228,49 @@
 // console.log(maxArea([1,8,6,2,5,4,8,3,7]));
 
 //Q.11 Rotat array right to left 
-function reverse(arr: number[], start: number, end: number): void {
-  while (start < end) {
-    const temp = arr[start];
-    arr[start] = arr[end];
-    arr[end] = temp;
-    start++;
-    end--;
+// function reverse(arr: number[], start: number, end: number): void {
+//   while (start < end) {
+//     const temp = arr[start];
+//     arr[start] = arr[end];
+//     arr[end] = temp;
+//     start++;
+//     end--;
+//   }
+// }
+
+// function rotate(arr: number[], k: number): void {
+//   const n = arr.length;
+//   k = k % n; 
+
+//   reverse(arr, 0, n - 1);     
+//   reverse(arr, 0, k - 1);     
+//   reverse(arr, k, n - 1);      
+// }
+
+// const arr = [1, 2, 3, 4,];
+// rotate(arr, 2);
+// console.log(arr);
+
+//Q.12  Merge Intervals 
+
+function merge(intervals: number[][]): number[][] {
+ intervals.sort((a, b) => a[0] - b[0]);
+ const result:number[][]=[intervals[0]]
+ for(let i=1;i<intervals.length;i++){
+  const current=intervals[i]
+  const lastMerged=result[result.length-1]
+  if(current[0]<=lastMerged[1]){
+   lastMerged[1] = Math.max(lastMerged[1], current[1]);
+  }else{
+    result.push(current)
   }
+ }
+
+
+  return result
 }
+let arr:number[][]=[[1,5],[5,10],[8,10],[15,18]]
 
-function rotate(arr: number[], k: number): void {
-  const n = arr.length;
-  k = k % n; 
+ console.log(merge(arr));
 
-  reverse(arr, 0, n - 1);     
-  reverse(arr, 0, k - 1);     
-  reverse(arr, k, n - 1);      
-}
-
-const arr = [1, 2, 3, 4,];
-rotate(arr, 2);
-console.log(arr);
 
