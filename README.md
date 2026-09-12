@@ -7,7 +7,7 @@ My personal collection of solved LeetCode problems, written in **TypeScript**, a
 This repo tracks my journey through Data Structures & Algorithms — one problem at a time. Each solution includes the problem approach and, where relevant, time/space complexity notes.
 
 ## 🚀 Topics Covered
-
+- String
 - Arrays & Two Pointers
 - Sliding Window
 - Linked List
