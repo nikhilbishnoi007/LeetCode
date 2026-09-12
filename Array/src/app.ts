@@ -205,24 +205,49 @@
 
 
 //Q.10 container with most water
-function maxArea(nums: number[]): number {
-  let left = 0;
-  let right = nums.length - 1;
-  let maxArea = 0;
-  while(left<right){
-    const width = right - left;
-    const height = Math.min(nums[left], nums[right]);
-    const area = width * height;
-     maxArea=Math.max(maxArea,area)
-     if(nums[left]<nums[right]){
-      left++
-     }else {
-      right--
-     }
-  }
+// function maxArea(nums: number[]): number {
+//   let left = 0;
+//   let right = nums.length - 1;
+//   let maxArea = 0;
+//   while(left<right){
+//     const width = right - left;
+//     const height = Math.min(nums[left], nums[right]);
+//     const area = width * height;
+//      maxArea=Math.max(maxArea,area)
+//      if(nums[left]<nums[right]){
+//       left++
+//      }else {
+//       right--
+//      }
+//   }
 
-  return maxArea
+//   return maxArea
   
+// }
+
+// console.log(maxArea([1,8,6,2,5,4,8,3,7]));
+
+//Q.11 Rotat array right to left 
+function reverse(arr: number[], start: number, end: number): void {
+  while (start < end) {
+    const temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++;
+    end--;
+  }
 }
 
-console.log(maxArea([1,8,6,2,5,4,8,3,7]));
+function rotate(arr: number[], k: number): void {
+  const n = arr.length;
+  k = k % n; 
+
+  reverse(arr, 0, n - 1);     
+  reverse(arr, 0, k - 1);     
+  reverse(arr, k, n - 1);      
+}
+
+const arr = [1, 2, 3, 4,];
+rotate(arr, 2);
+console.log(arr);
+
