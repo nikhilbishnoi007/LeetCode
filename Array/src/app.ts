@@ -302,19 +302,17 @@
 function findDuplicate(arr: number[]): number {
   let slow = arr[0];
   let fast = arr[0];
-
   do {
     slow = arr[slow];           
     fast = arr[arr[fast]];      
   } while (slow !== fast);
   let finder=arr[0]
-  do {
+  while (slow !== finder) {
     slow = arr[slow];           
     finder = arr[finder];      
-  } while (slow !== finder);
-  
-  return finder; 
+  } ;
+  return slow;
 }
 
-let arr=[1,3,4,2,2]
+let arr=[3,1,3,4,2]
 console.log(findDuplicate(arr));
