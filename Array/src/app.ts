@@ -253,24 +253,46 @@
 
 //Q.12  Merge Intervals 
 
-function merge(intervals: number[][]): number[][] {
- intervals.sort((a, b) => a[0] - b[0]);
- const result:number[][]=[intervals[0]]
- for(let i=1;i<intervals.length;i++){
-  const current=intervals[i]
-  const lastMerged=result[result.length-1]
-  if(current[0]<=lastMerged[1]){
-   lastMerged[1] = Math.max(lastMerged[1], current[1]);
-  }else{
-    result.push(current)
+// function merge(intervals: number[][]): number[][] {
+//  intervals.sort((a, b) => a[0] - b[0]);
+//  const result:number[][]=[intervals[0]]
+//  for(let i=1;i<intervals.length;i++){
+//   const current=intervals[i]
+//   const lastMerged=result[result.length-1]
+//   if(current[0]<=lastMerged[1]){
+//    lastMerged[1] = Math.max(lastMerged[1], current[1]);
+//   }else{
+//     result.push(current)
+//   }
+//  }
+
+
+//   return result
+// }
+// let arr:number[][]=[[1,5],[5,10],[8,10],[15,18]]
+
+//  console.log(merge(arr));
+
+
+//Q.13 Kadane's Variant: Subarray with Maximum Product
+
+function maxProduct(arr: number[]): number {
+  let currentMax=arr[0]
+  let maxProduct=arr[0]
+  let currentMin=arr[0]
+  
+  for(let i=1;i<arr.length;i++){
+    const tempMax = currentMax;
+    currentMax=Math.max(arr[i],currentMax*arr[i],currentMin*arr[i])
+    currentMin=Math.min(arr[i],currentMin*arr[i],tempMax*arr[i])
+    if(maxProduct<currentMax){
+      maxProduct=currentMax
+    }
+   
   }
- }
-
-
-  return result
+ return maxProduct
 }
-let arr:number[][]=[[1,5],[5,10],[8,10],[15,18]]
 
- console.log(merge(arr));
-
-
+console.log(maxProduct([2, 3, -2, 4]));
+console.log(maxProduct([-2, 0, -1]));
+console.log(maxProduct([-2, 3, -4]));
