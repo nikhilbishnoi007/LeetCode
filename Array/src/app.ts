@@ -276,23 +276,45 @@
 
 //Q.13 Kadane's Variant: Subarray with Maximum Product
 
-function maxProduct(arr: number[]): number {
-  let currentMax=arr[0]
-  let maxProduct=arr[0]
-  let currentMin=arr[0]
+// function maxProduct(arr: number[]): number {
+//   let currentMax=arr[0]
+//   let maxProduct=arr[0]
+//   let currentMin=arr[0]
   
-  for(let i=1;i<arr.length;i++){
-    const tempMax = currentMax;
-    currentMax=Math.max(arr[i],currentMax*arr[i],currentMin*arr[i])
-    currentMin=Math.min(arr[i],currentMin*arr[i],tempMax*arr[i])
-    if(maxProduct<currentMax){
-      maxProduct=currentMax
-    }
+//   for(let i=1;i<arr.length;i++){
+//     const tempMax = currentMax;
+//     currentMax=Math.max(arr[i],currentMax*arr[i],currentMin*arr[i])
+//     currentMin=Math.min(arr[i],currentMin*arr[i],tempMax*arr[i])
+//     if(maxProduct<currentMax){
+//       maxProduct=currentMax
+//     }
    
-  }
- return maxProduct
+//   }
+//  return maxProduct
+// }
+
+// console.log(maxProduct([2, 3, -2, 4]));
+// console.log(maxProduct([-2, 0, -1]));
+// console.log(maxProduct([-2, 3, -4]));
+
+//Q.14 Find Duplicate Number Using Floyd's Tortoise and Hare Algorithm
+
+function findDuplicate(arr: number[]): number {
+  let slow = arr[0];
+  let fast = arr[0];
+
+  do {
+    slow = arr[slow];           
+    fast = arr[arr[fast]];      
+  } while (slow !== fast);
+  let finder=arr[0]
+  do {
+    slow = arr[slow];           
+    finder = arr[finder];      
+  } while (slow !== finder);
+  
+  return finder; 
 }
 
-console.log(maxProduct([2, 3, -2, 4]));
-console.log(maxProduct([-2, 0, -1]));
-console.log(maxProduct([-2, 3, -4]));
+let arr=[1,3,4,2,2]
+console.log(findDuplicate(arr));
