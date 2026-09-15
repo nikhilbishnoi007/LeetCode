@@ -299,20 +299,41 @@
 
 //Q.14 Find Duplicate Number Using Floyd's Tortoise and Hare Algorithm
 
-function findDuplicate(arr: number[]): number {
-  let slow = arr[0];
-  let fast = arr[0];
-  do {
-    slow = arr[slow];           
-    fast = arr[arr[fast]];      
-  } while (slow !== fast);
-  let finder=arr[0]
-  while (slow !== finder) {
-    slow = arr[slow];           
-    finder = arr[finder];      
-  } ;
-  return slow;
+// function findDuplicate(arr: number[]): number {
+//   let slow = arr[0];
+//   let fast = arr[0];
+//   do {
+//     slow = arr[slow];           
+//     fast = arr[arr[fast]];      
+//   } while (slow !== fast);
+//   let finder=arr[0]
+//   while (slow !== finder) {
+//     slow = arr[slow];           
+//     finder = arr[finder];      
+//   } 
+//   return slow;
+// }
+
+// let arr=[3,1,3,4,2]
+// console.log(findDuplicate(arr));
+
+// Q.15  Majority Element
+
+function majorityElement(arr: number[]): number {
+  let n=arr.length
+  let count=0
+  let currentElement=arr[0]
+  for(const num of arr){
+    if(count==0){
+      currentElement=num
+    }
+    if(num===currentElement){
+      count++
+    }else{
+      count--
+    }
+  }
+  return currentElement
 }
 
-let arr=[3,1,3,4,2]
-console.log(findDuplicate(arr));
+console.log(majorityElement([2, 1, 1, 1, 1, 2, 2]));
