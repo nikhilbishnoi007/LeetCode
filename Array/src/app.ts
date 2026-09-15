@@ -319,21 +319,73 @@
 
 // Q.15  Majority Element
 
-function majorityElement(arr: number[]): number {
-  let n=arr.length
-  let count=0
-  let currentElement=arr[0]
-  for(const num of arr){
-    if(count==0){
-      currentElement=num
-    }
-    if(num===currentElement){
-      count++
-    }else{
-      count--
-    }
-  }
-  return currentElement
+// function majorityElement(arr: number[]): number {
+//   let n=arr.length
+//   let count=0
+//   let currentElement=arr[0]
+//   for(const num of arr){
+//     if(count==0){
+//       currentElement=num
+//     }
+//     if(num===currentElement){
+//       count++
+//     }else{
+//       count--
+//     }
+//   }
+//   return currentElement
+// }
+
+// console.log(majorityElement([2, 1, 1, 1, 1, 2, 2]));
+
+//Q.16 Majority Element II
+
+function majorityElementII(arr: number[]): number[]{
+let count1=0
+let count2=0
+let limit=arr.length/3
+let currentElement1: number | null = null;
+let currentElement2: number | null = null;
+let newArr:number[]=[]
+for(const nums of arr){
+if (nums === currentElement1) {
+  count1++
+} else if (nums === currentElement2) {
+  count2++
+}
+ else if (count1 === 0) {
+  currentElement1 = nums
+  count1 = 1
+}
+else if (count2 === 0) {
+  currentElement2 = nums
+  count2 = 1
+}
+else {
+  count1--
+  count2--
+}
+}
+let actualCount1 = 0
+let actualCount2 = 0
+
+for (const nums of arr) {
+  if (nums === currentElement1) actualCount1++
+  if (nums === currentElement2) actualCount2++
+}
+if (actualCount1 > limit && currentElement1 !== null) {
+  newArr.push(currentElement1)
+}
+if (actualCount2 > limit && currentElement2!== null) {
+  newArr.push(currentElement2)
+}
+return newArr
 }
 
-console.log(majorityElement([2, 1, 1, 1, 1, 2, 2]));
+console.log(majorityElementII([3, 2, 3]));
+
+
+console.log(majorityElementII([1, 1, 1, 3, 3, 2, 2, 2]));
+
+console.log(majorityElementII([1,2,3]))
+console.log(majorityElementII([0,0,0]))
