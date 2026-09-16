@@ -392,20 +392,32 @@
 
 //Q.17 best time to buy a stock
 
-function maxProfit(arr: number[]): number {
-  let minPrice=arr[0]
-  let maxPrice=0
-  let maxProfit=0
-  for(let i=0;i<arr.length;i++){
-    minPrice=Math.min(arr[i],minPrice)
-    maxProfit=Math.max(maxProfit,arr[i]-minPrice)
-  }
+// function maxProfit(arr: number[]): number {
+//   let minPrice=arr[0]
+//   let maxProfit=0
+//   for(let i=0;i<arr.length;i++){
+//     minPrice=Math.min(arr[i],minPrice)
+//     maxProfit=Math.max(maxProfit,arr[i]-minPrice)
+//   }
 
- return maxProfit
+//  return maxProfit
+// }
+
+// console.log(maxProfit([7, 1, 5, 3, 6, 4]));
+// console.log(maxProfit([7, 6, 4, 3, 1]));
+
+//Q.18 best time to buy or sell stock II
+
+function maxProfitMultiple(arr: number[]): number {
+    let minPrice=arr[0]
+    let maxProfit=0
+    for(let i=0;i<arr.length;i++){
+      if(arr[i+1]>arr[i]){
+        maxProfit+=arr[i+1]-arr[i]
+      }
+    }
+    return maxProfit
 }
 
-console.log(maxProfit([7, 1, 5, 3, 6, 4]));
-// output: 5 (day 2 ko 1 pe khareedo, day 5 ko 6 pe becho: 6-1=5)
+console.log(maxProfitMultiple([7, 1, 5, 3, 6, 4]));
 
-console.log(maxProfit([7, 6, 4, 3, 1]));
-// output: 0 (price hamesha gir rahi hai, koi profit possible nahi)
