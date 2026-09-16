@@ -311,7 +311,7 @@
 //     slow = arr[slow];           
 //     finder = arr[finder];      
 //   } 
-//   return slow;
+//   return finder;
 // }
 
 // let arr=[3,1,3,4,2]
@@ -408,16 +408,46 @@
 
 //Q.18 best time to buy or sell stock II
 
-function maxProfitMultiple(arr: number[]): number {
-    let minPrice=arr[0]
-    let maxProfit=0
-    for(let i=0;i<arr.length;i++){
-      if(arr[i+1]>arr[i]){
-        maxProfit+=arr[i+1]-arr[i]
-      }
-    }
-    return maxProfit
+// function maxProfitMultiple(arr: number[]): number {
+//     let minPrice=arr[0]
+//     let maxProfit=0
+//     for(let i=0;i<arr.length;i++){
+//       if(arr[i+1]>arr[i]){
+//         maxProfit+=arr[i+1]-arr[i]
+//       }
+//     }
+//     return maxProfit
+// }
+
+// console.log(maxProfitMultiple([7, 1, 5, 3, 6, 4]));
+
+// Q.19 Find All Numbers Disappeared in an Array
+
+function findDisappearedNumbers(arr: number[]): number[] {
+//   let n=arr.length
+//   let set=new Set<number>()
+// for(let i=1;i<=n;i++){
+//    set.add(i)
+// }
+// for(const val of arr){
+//   set.delete(val)
+// }
+// return Array.from(set)
+for (let i = 0; i < arr.length; i++) {
+  const index = Math.abs(arr[i]) - 1;   
+  if (arr[index] > 0) {
+    arr[index] = -arr[index];           
+}
+}
+// const result: number[] = []
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr[i] > 0) {
+//     result.push(i + 1);   
+//   }
+// }
+return arr
 }
 
-console.log(maxProfitMultiple([7, 1, 5, 3, 6, 4]));
+console.log(findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]));
+
 
