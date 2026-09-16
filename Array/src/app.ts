@@ -340,52 +340,72 @@
 
 //Q.16 Majority Element II
 
-function majorityElementII(arr: number[]): number[]{
-let count1=0
-let count2=0
-let limit=arr.length/3
-let currentElement1: number | null = null;
-let currentElement2: number | null = null;
-let newArr:number[]=[]
-for(const nums of arr){
-if (nums === currentElement1) {
-  count1++
-} else if (nums === currentElement2) {
-  count2++
-}
- else if (count1 === 0) {
-  currentElement1 = nums
-  count1 = 1
-}
-else if (count2 === 0) {
-  currentElement2 = nums
-  count2 = 1
-}
-else {
-  count1--
-  count2--
-}
-}
-let actualCount1 = 0
-let actualCount2 = 0
+// function majorityElementII(arr: number[]): number[]{
+// let count1=0
+// let count2=0
+// let limit=arr.length/3
+// let currentElement1: number | null = null;
+// let currentElement2: number | null = null;
+// let newArr:number[]=[]
+// for(const nums of arr){
+// if (nums === currentElement1) {
+//   count1++
+// } else if (nums === currentElement2) {
+//   count2++
+// }
+//  else if (count1 === 0) {
+//   currentElement1 = nums
+//   count1 = 1
+// }
+// else if (count2 === 0) {
+//   currentElement2 = nums
+//   count2 = 1
+// }
+// else {
+//   count1--
+//   count2--
+// }
+// }
+// let actualCount1 = 0
+// let actualCount2 = 0
 
-for (const nums of arr) {
-  if (nums === currentElement1) actualCount1++
-  if (nums === currentElement2) actualCount2++
-}
-if (actualCount1 > limit && currentElement1 !== null) {
-  newArr.push(currentElement1)
-}
-if (actualCount2 > limit && currentElement2!== null) {
-  newArr.push(currentElement2)
-}
-return newArr
+// for (const nums of arr) {
+//   if (nums === currentElement1) actualCount1++
+//   if (nums === currentElement2) actualCount2++
+// }
+// if (actualCount1 > limit && currentElement1 !== null) {
+//   newArr.push(currentElement1)
+// }
+// if (actualCount2 > limit && currentElement2!== null) {
+//   newArr.push(currentElement2)
+// }
+// return newArr
+// }
+
+// console.log(majorityElementII([3, 2, 3]));
+
+
+// console.log(majorityElementII([1, 1, 1, 3, 3, 2, 2, 2]));
+
+// console.log(majorityElementII([1,2,3]))
+// console.log(majorityElementII([0,0,0]))
+
+//Q.17 best time to buy a stock
+
+function maxProfit(arr: number[]): number {
+  let minPrice=arr[0]
+  let maxPrice=0
+  let maxProfit=0
+  for(let i=0;i<arr.length;i++){
+    minPrice=Math.min(arr[i],minPrice)
+    maxProfit=Math.max(maxProfit,arr[i]-minPrice)
+  }
+
+ return maxProfit
 }
 
-console.log(majorityElementII([3, 2, 3]));
+console.log(maxProfit([7, 1, 5, 3, 6, 4]));
+// output: 5 (day 2 ko 1 pe khareedo, day 5 ko 6 pe becho: 6-1=5)
 
-
-console.log(majorityElementII([1, 1, 1, 3, 3, 2, 2, 2]));
-
-console.log(majorityElementII([1,2,3]))
-console.log(majorityElementII([0,0,0]))
+console.log(maxProfit([7, 6, 4, 3, 1]));
+// output: 0 (price hamesha gir rahi hai, koi profit possible nahi)
