@@ -24,7 +24,7 @@ This repo tracks my journey through Data Structures & Algorithms — one problem
 
 | Difficulty | Solved |
 |------------|--------|
-| Easy       | 5   |
+| Easy       | 6  |
 | Medium     | 10   |
 | Hard       | -      |
 
