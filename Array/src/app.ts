@@ -423,7 +423,7 @@
 
 // Q.19 Find All Numbers Disappeared in an Array
 
-function findDisappearedNumbers(arr: number[]): number[] {
+// function findDisappearedNumbers(arr: number[]): number[] {
 //   let n=arr.length
 //   let set=new Set<number>()
 // for(let i=1;i<=n;i++){
@@ -433,21 +433,36 @@ function findDisappearedNumbers(arr: number[]): number[] {
 //   set.delete(val)
 // }
 // return Array.from(set)
-for (let i = 0; i < arr.length; i++) {
-  const index = Math.abs(arr[i]) - 1;   
-  if (arr[index] > 0) {
-    arr[index] = -arr[index];           
-}
-}
+// for (let i = 0; i < arr.length; i++) {
+//   const index = Math.abs(arr[i]) - 1;   
+//   if (arr[index] > 0) {
+//     arr[index] = -arr[index];           
+// }
+// }
 // const result: number[] = []
 // for (let i = 0; i < arr.length; i++) {
 //   if (arr[i] > 0) {
 //     result.push(i + 1);   
 //   }
 // }
-return arr
-}
+// return result
+// }
 
-console.log(findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]));
+// console.log(findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]));
 
+
+//Q.20 Pascal's Triangle Row (variant)
+
+// function runningMax(arr: number[]):number[] {
+// const result:number[]=[]
+// let max=arr[0]
+// for(let i=0;i<arr.length;i++){
+//   max=Math.max(max,arr[i])
+//   result[i]=max
+// }
+// return result
+// }
+
+// console.log(runningMax([3, 1, 4, 1, 5, 9, 2, 6]));
+// output: [3, 3, 4, 4, 5, 9, 9, 9]
 
