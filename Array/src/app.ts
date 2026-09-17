@@ -466,3 +466,28 @@
 // console.log(runningMax([3, 1, 4, 1, 5, 9, 2, 6]));
 // output: [3, 3, 4, 4, 5, 9, 9, 9]
 
+//Q.21 Trapping Rain Water
+
+function trap(height: number[]){
+  let n=height.length
+  let leftMax:number[]=[]
+  let rightMax:number[]=new Array(n).fill(0)
+  let calculator=height[0]
+  for(let i=0;i<n;i++){
+    calculator=Math.max(calculator,height[i])
+    leftMax[i]=calculator
+  }
+  let calculator2=height[n-1]
+  for(let i=n-1;i>=0;i--){
+    calculator2=Math.max(calculator2,height[i])
+    rightMax[i]=calculator2
+  }
+  // let TotalWater=0
+  // for(let i=1;i<n;i++){
+  //   TotalWater+=Math.min(leftMax[i],rightMax[i])-height[i]
+  // }
+  return rightMax
+}
+
+console.log(trap([0,1,0,2,1,0,1,3,2,1,2,1]));
+// output: 6
