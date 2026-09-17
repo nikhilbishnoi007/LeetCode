@@ -495,30 +495,30 @@
 //Q.22 Spiral Matrix
 function spiralOrder(matrix: number[][]){
   let top=0
-  let bottom=matrix.length-1 //bottom=2
+  let bottom=matrix.length-1 
   let left=0
-  let right=matrix[0].length-1 //right=3
+  let right=matrix[0].length-1 
   let result:number[]=[]
     while (top <= bottom && left <= right) {
       for(let i=left;i<=right;i++){
         result.push(matrix[top][i])
       }
-      top++  //top=1
+      top++ 
       for(let i=top;i<=bottom;i++){
         result.push(matrix[i][right])
       }
-      right-- //right=1
+      right-- 
       if(top<=bottom){
       for(let i=right;i>=left;i--){
         result.push(matrix[bottom][i])
       }
       bottom--
-      } //bottom=1
+      } 
       if(left<=right){
       for(let i=bottom;i>=top;i--){
         result.push(matrix[i][left])
       }
-      left++ //left=1
+      left++ 
      } 
   }
   return result
