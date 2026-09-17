@@ -468,26 +468,62 @@
 
 //Q.21 Trapping Rain Water
 
-function trap(height: number[]){
-  let n=height.length
-  let leftMax:number[]=[]
-  let rightMax:number[]=new Array(n).fill(0)
-  let calculator=height[0]
-  for(let i=0;i<n;i++){
-    calculator=Math.max(calculator,height[i])
-    leftMax[i]=calculator
-  }
-  let calculator2=height[n-1]
-  for(let i=n-1;i>=0;i--){
-    calculator2=Math.max(calculator2,height[i])
-    rightMax[i]=calculator2
-  }
-  // let TotalWater=0
-  // for(let i=1;i<n;i++){
-  //   TotalWater+=Math.min(leftMax[i],rightMax[i])-height[i]
-  // }
-  return rightMax
-}
+// function trap(height: number[]):number{
+//   let n=height.length
+//   let leftMax:number[]=[]
+//   let rightMax:number[]=new Array(n).fill(0)
+//   let calculator=height[0]
+//   for(let i=0;i<n;i++){
+//     calculator=Math.max(calculator,height[i])
+//     leftMax[i]=calculator
+//   }
+//   let calculator2=height[n-1]
+//   for(let i=n-1;i>=0;i--){
+//     calculator2=Math.max(calculator2,height[i])
+//     rightMax[i]=calculator2
+//   }
+//   let TotalWater=0
+//   for(let i=1;i<n;i++){
+//     TotalWater+=Math.min(leftMax[i],rightMax[i])-height[i]
+//   }
+//   return TotalWater
+// }
 
-console.log(trap([0,1,0,2,1,0,1,3,2,1,2,1]));
-// output: 6
+// console.log(trap([0,1,0,2,1,0,1,3,2,1,2,1]));
+
+
+//Q.22 Spiral Matrix
+function spiralOrder(matrix: number[][]){
+  let top=0
+  let bottom=matrix.length-1 //bottom=2
+  let left=0
+  let right=matrix[0].length-1 //right=3
+  let result:number[]=[]
+    while (top <= bottom && left <= right) {
+      for(let i=left;i<=right;i++){
+        result.push(matrix[top][i])
+      }
+      top++  //top=1
+      for(let i=top;i<=bottom;i++){
+        result.push(matrix[i][right])
+      }
+      right-- //right=1
+      if(top<=bottom){
+      for(let i=right;i>=left;i--){
+        result.push(matrix[bottom][i])
+      }
+      bottom--
+      } //bottom=1
+      if(left<=right){
+      for(let i=bottom;i>=top;i--){
+        result.push(matrix[i][left])
+      }
+      left++ //left=1
+     } 
+  }
+  return result
+}
+let num=[[1,2,3],[4,5,6],[7,8,9]]
+let num2=[[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+console.log(spiralOrder(num));
+console.log(spiralOrder(num2));
