@@ -493,37 +493,69 @@
 
 
 //Q.22 Spiral Matrix
-function spiralOrder(matrix: number[][]){
-  let top=0
-  let bottom=matrix.length-1 
-  let left=0
-  let right=matrix[0].length-1 
-  let result:number[]=[]
-    while (top <= bottom && left <= right) {
-      for(let i=left;i<=right;i++){
-        result.push(matrix[top][i])
-      }
-      top++ 
-      for(let i=top;i<=bottom;i++){
-        result.push(matrix[i][right])
-      }
-      right-- 
-      if(top<=bottom){
-      for(let i=right;i>=left;i--){
-        result.push(matrix[bottom][i])
-      }
-      bottom--
-      } 
-      if(left<=right){
-      for(let i=bottom;i>=top;i--){
-        result.push(matrix[i][left])
-      }
-      left++ 
-     } 
+// function spiralOrder(matrix: number[][]){
+//   let top=0
+//   let bottom=matrix.length-1 
+//   let left=0
+//   let right=matrix[0].length-1 
+//   let result:number[]=[]
+//     while (top <= bottom && left <= right) {
+//       for(let i=left;i<=right;i++){
+//         result.push(matrix[top][i])
+//       }
+//       top++ 
+//       for(let i=top;i<=bottom;i++){
+//         result.push(matrix[i][right])
+//       }
+//       right-- 
+//       if(top<=bottom){
+//       for(let i=right;i>=left;i--){
+//         result.push(matrix[bottom][i])
+//       }
+//       bottom--
+//       } 
+//       if(left<=right){
+//       for(let i=bottom;i>=top;i--){
+//         result.push(matrix[i][left])
+//       }
+//       left++ 
+//      } 
+//   }
+//   return result
+// }
+// let num=[[1,2,3],[4,5,6],[7,8,9]]
+// let num2=[[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+// console.log(spiralOrder(num));
+// console.log(spiralOrder(num2));
+
+//Q.23 Rotating Matrix
+function rotate(matrix: number[][]): void {
+  let n=matrix.length
+  let m=matrix[0].length-1
+  for(let i=0;i<n;i++){
+    for(let j=i+1;j<n;j++){
+      let temp=matrix[i][j]
+      matrix[i][j]=matrix[j][i]
+      matrix[j][i]=temp
+    }
   }
-  return result
+  for(let i=0;i<n;i++){
+    let left=0;
+    let right=n-1
+    while(left<right){
+      let temp=matrix[i][left]
+      matrix[i][left]=matrix[i][right]
+      matrix[i][right]=temp
+      left++
+      right--
+    }
+  }
+ 
 }
-let num=[[1,2,3],[4,5,6],[7,8,9]]
-let num2=[[1,2,3,4],[5,6,7,8],[9,10,11,12]]
-console.log(spiralOrder(num));
-console.log(spiralOrder(num2));
+
+const matrix = [[1, 2, 3],[4, 5, 6],[7, 8, 9]]
+const matrix2 = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
+rotate(matrix)
+rotate(matrix2)
+console.log(matrix)
+console.log(matrix2)
