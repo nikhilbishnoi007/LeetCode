@@ -531,7 +531,6 @@
 //Q.23 Rotating Matrix
 function rotate(matrix: number[][]): void {
   let n=matrix.length
-  let m=matrix[0].length-1
   for(let i=0;i<n;i++){
     for(let j=i+1;j<n;j++){
       let temp=matrix[i][j]
