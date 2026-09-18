@@ -529,32 +529,50 @@
 // console.log(spiralOrder(num2));
 
 //Q.23 Rotating Matrix
-function rotate(matrix: number[][]): void {
-  let n=matrix.length
-  for(let i=0;i<n;i++){
-    for(let j=i+1;j<n;j++){
-      let temp=matrix[i][j]
-      matrix[i][j]=matrix[j][i]
-      matrix[j][i]=temp
-    }
-  }
-  for(let i=0;i<n;i++){
-    let left=0;
-    let right=n-1
-    while(left<right){
-      let temp=matrix[i][left]
-      matrix[i][left]=matrix[i][right]
-      matrix[i][right]=temp
-      left++
-      right--
-    }
-  }
+// function rotate(matrix: number[][]): void {
+//   let n=matrix.length
+//   for(let i=0;i<n;i++){
+//     for(let j=i+1;j<n;j++){
+//       let temp=matrix[i][j]
+//       matrix[i][j]=matrix[j][i]
+//       matrix[j][i]=temp
+//     }
+//   }
+//   for(let i=0;i<n;i++){
+//     let left=0;
+//     let right=n-1
+//     while(left<right){
+//       let temp=matrix[i][left]
+//       matrix[i][left]=matrix[i][right]
+//       matrix[i][right]=temp
+//       left++
+//       right--
+//     }
+//   }
  
+// }
+
+// const matrix = [[1, 2, 3],[4, 5, 6],[7, 8, 9]]
+// const matrix2 = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
+// rotate(matrix)
+// rotate(matrix2)
+// console.log(matrix)
+// console.log(matrix2)
+
+//Q.24 Binary Search
+function search(arr: number[], target: number): number {
+ let left=0;
+ let right=arr.length-1
+ while(left<=right){
+  let mid=Math.floor((left+right)/2)
+  if(arr[mid]==target)return mid
+  else if (arr[mid] < target) left = mid + 1;
+  else right = mid - 1;
+ }
+ return -1
 }
 
-const matrix = [[1, 2, 3],[4, 5, 6],[7, 8, 9]]
-const matrix2 = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
-rotate(matrix)
-rotate(matrix2)
-console.log(matrix)
-console.log(matrix2)
+console.log(search([-1,0,3,5,9,12], 9));
+
+
+console.log(search([-1, 0, 3, 5, 9, 12], 2));
