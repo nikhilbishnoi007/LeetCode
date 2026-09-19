@@ -318,7 +318,6 @@
 // console.log(findDuplicate(arr));
 
 // Q.15  Majority Element
-
 // function majorityElement(arr: number[]): number {
 //   let n=arr.length
 //   let count=0
@@ -642,7 +641,5 @@ console.log(findValleyElement([5, 3, 1, 4, 6]));
 
 
 console.log(findValleyElement([9, 6, 3, 14, 5, 7, 4]));
-
-
 
 
