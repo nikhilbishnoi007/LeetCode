@@ -605,22 +605,44 @@
 
 
 //Q.26 Find Peak element
-function findPeakElement(arr: number[]): number {
-    let left=0
-    let right=arr.length-1
-    while(left<right){
-        let mid=Math.floor((left+right)/2)
-        if(arr[mid]<arr[mid+1]){
-            left =mid+1
-        }else{
-            right=mid
-        }
+// function findPeakElement(arr: number[]): number {
+//     let left=0
+//     let right=arr.length-1
+//     while(left<right){
+//         let mid=Math.floor((left+right)/2)
+//         if(arr[mid]<arr[mid+1]){
+//             left =mid+1
+//         }else{
+//             right=mid
+//         }
+//     }
+//     return left
+// }
+
+// console.log(findPeakElement([1, 2, 3, 1]));
+// console.log(findPeakElement([1, 2, 1, 3, 5, 6, 4]));
+
+// Q.27 find vally element
+
+function findValleyElement(arr: number[]): number {
+  let left=0
+  let right=arr.length-1
+  while(left<right){
+    let mid=Math.floor((left+right)/2)
+    if(arr[mid]>arr[mid+1]){
+        left=mid+1
+    }else{
+        right=mid
     }
-    return left
+  }
+  return left
 }
 
-console.log(findPeakElement([1, 2, 3, 1]));
-console.log(findPeakElement([1, 2, 1, 3, 5, 6, 4]));
+console.log(findValleyElement([5, 3, 1, 4, 6]));
+
+
+console.log(findValleyElement([9, 6, 3, 14, 5, 7, 4]));
+
 
 
 
