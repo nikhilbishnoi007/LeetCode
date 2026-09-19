@@ -227,7 +227,7 @@
 
 // console.log(maxArea([1,8,6,2,5,4,8,3,7]));
 
-//Q.11 Rotat array right to left 
+// Q.11 Rotat array right to left 
 // function reverse(arr: number[], start: number, end: number): void {
 //   while (start < end) {
 //     const temp = arr[start];
@@ -274,7 +274,7 @@
 //  console.log(merge(arr));
 
 
-//Q.13 Kadane's Variant: Subarray with Maximum Product
+// Q.13 Kadane's Variant: Subarray with Maximum Product
 
 // function maxProduct(arr: number[]): number {
 //   let currentMax=arr[0]
@@ -579,27 +579,48 @@
 
 
 //Q.25 Search in Rotated Sorted Array
-function search(arr: number[], target: number): number {
-    let left = 0
-    let right = arr.length - 1
-    while (left <= right) {
-        let mid = Math.floor((left + right) / 2)
-        if (arr[mid] == target) return mid
-        if (arr[left] <= arr[mid]) {
-            if (target >= arr[left] && target < arr[mid]) right = mid - 1
-            else left = mid + 1
-        } else {
-            if (target <= arr[right] && target > arr[mid]) left =mid +1
-            else right = mid - 1
+// function search(arr: number[], target: number): number {
+//     let left = 0
+//     let right = arr.length - 1
+//     while (left <= right) {
+//         let mid = Math.floor((left + right) / 2)
+//         if (arr[mid] == target) return mid
+//         if (arr[left] <= arr[mid]) {
+//             if (target >= arr[left] && target < arr[mid]) right = mid - 1
+//             else left = mid + 1
+//         } else {
+//             if (target <= arr[right] && target > arr[mid]) left =mid +1
+//             else right = mid - 1
+//         }
+
+//     }
+
+//     return -1
+// }
+
+// console.log(search([4, 5, 6, 7, 0, 1, 2], 0));
+
+
+// console.log(search([4, 5, 6, 7, 0, 1, 2], 3));
+
+
+//Q.26 Find Peak element
+function findPeakElement(arr: number[]): number {
+    let left=0
+    let right=arr.length-1
+    while(left<right){
+        let mid=Math.floor((left+right)/2)
+        if(arr[mid]<arr[mid+1]){
+            left =mid+1
+        }else{
+            right=mid
         }
-
     }
-
-    return -1
+    return left
 }
 
-console.log(search([4, 5, 6, 7, 0, 1, 2], 0));
-// output: 4
+console.log(findPeakElement([1, 2, 3, 1]));
+console.log(findPeakElement([1, 2, 1, 3, 5, 6, 4]));
 
-console.log(search([4, 5, 6, 7, 0, 1, 2], 3));
-// output: -1 (3 array mein nahi hai)
+
+
