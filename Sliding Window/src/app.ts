@@ -1,6 +1,3 @@
-function log<T>(input:T){
-    console.log(input)
-}
 //Q.1 sliding window maximum
 // function maxSlidingWindow(nums: number[], k: number): number[] {
 //     let result:number[]=[]
@@ -17,35 +14,29 @@ function log<T>(input:T){
 // let nums:number[]=[1,3,-1,-3,5,3,6,7]
 // let k=3
 // let ans=maxSlidingWindow(nums,k)
-// log(ans)
+// console.log(ans)
 
 function maxSlidingWindow(nums: number[], k: number): number[] {
-  const result: number[] = [];
-  const deque: number[] = [];  
+    const result: number[] = [];
+    const deque: number[] = [];
 
-  for (let i = 0; i < nums.length; i++) {
-
-    if (deque.length > 0 && deque[0] <= i - k) {
-      deque.shift();  
+    for (let i = 0; i < nums.length; i++) {
+        if (deque.length > 0 && deque[0] <= i - k) {
+            deque.shift();
+        }
+        while (deque.length > 0 && nums[deque[deque.length - 1]] < nums[i]) {
+            deque.pop();
+        }
+        deque.push(i);
+        if (i >= k - 1) {
+            result.push(nums[deque[0]]);
+        }
     }
 
-    while (deque.length > 0 && nums[deque[deque.length - 1]] < nums[i]) {
-      deque.pop(); 
-    }
-
-   
-    deque.push(i);
-
-  
-    if (i >= k - 1) {
-      result.push(nums[deque[0]]); 
-    }
-  }
-
-  return result;
+    return result;
 }
 
-let nums:number[]=[1,3,-1,-3,5,3,6,7]
-let k=3
-let ans=maxSlidingWindow(nums,k)
-log(ans)
+let nums: number[] = [1, 3, -1, -3, 5, 3, 6, 7]
+let k = 3
+let ans = maxSlidingWindow(nums, k)
+console.log(ans)
