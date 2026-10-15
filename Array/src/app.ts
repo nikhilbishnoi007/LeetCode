@@ -623,23 +623,32 @@
 
 // Q.27 find vally element
 
-function findValleyElement(arr: number[]): number {
-  let left=0
-  let right=arr.length-1
-  while(left<right){
-    let mid=Math.floor((left+right)/2)
-    if(arr[mid]>arr[mid+1]){
-        left=mid+1
-    }else{
-        right=mid
-    }
-  }
-  return left
-}
+// function findValleyElement(arr: number[]): number {
+//   let left=0
+//   let right=arr.length-1
+//   while(left<right){
+//     let mid=Math.floor((left+right)/2)
+//     if(arr[mid]>arr[mid+1]){
+//         left=mid+1
+//     }else{
+//         right=mid
+//     }
+//   }
+//   return left
+// }
 
-console.log(findValleyElement([5, 3, 1, 4, 6]));
-
-
-console.log(findValleyElement([9, 6, 3, 14, 5, 7, 4]));
+// console.log(findValleyElement([5, 3, 1, 4, 6]));
 
 
+// console.log(findValleyElement([9, 6, 3, 14, 5, 7, 4]));
+
+
+function isPalindrome(x: number): boolean {
+  let a=x.toString();
+  let reverse=(s:string):string =>[...s].reverse().join("")
+  let b=reverse(a)
+  return a===b
+};
+
+let ans=isPalindrome(121)
+console.log(ans)
